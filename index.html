@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echo Core | Content Strategy Agency for Executives</title>
+    <meta name="description" content="Turn Core Leaders Into Your Brand Influencers. Echo Core is the content machine for executives.">
+    
+    <!-- Google Fonts: Inter Only (Clean, Modern Sans-Serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        black: '#000000',
+                        white: '#FFFFFF',
+                        'off-white': '#F8F8F8',
+                        brown: '#8B6F47',       /* Warm Brown (Accent) */
+                        'dark-brown': '#3D2817', /* Dark Brown */
+                        'light-brown': '#D4C4B0' /* Light Brown */
+                    },
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(0, 0, 0, 0.08)',
+                        'card': '0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02)'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+
+        /* Language Toggle Visibility */
+        .lang-tc { display: none; }
+        body.show-tc .lang-en { display: none; }
+        body.show-tc .lang-tc { display: block; }
+
+        /* --- TRADITIONAL CHINESE LAYOUT FIXES --- */
+        
+        /* Reset tight letter spacing for Chinese characters to prevent cramping */
+        body.show-tc .tracking-tight { letter-spacing: 0 !important; }
+        
+        /* Reduce extremely wide spacing for Chinese to keep it readable */
+        body.show-tc .tracking-widest { letter-spacing: 0.05em !important; }
+        
+        /* Improve line height for Chinese text */
+        body.show-tc h1, 
+        body.show-tc h2, 
+        body.show-tc h3,
+        body.show-tc h4, 
+        body.show-tc p { 
+            line-height: 1.5 !important; 
+        }
+
+        /* Specific fix for Hero Badge */
+        body.show-tc .hero-badge { 
+            white-space: nowrap !important;
+            display: inline-block;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        /* Ensure Headlines don't break awkwardly */
+        body.show-tc h1 {
+            line-height: 1.3 !important;
+        }
+        
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
+        
+        /* Custom Utilities */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        /* Button Styles */
+        .btn-primary {
+            background-color: #000000;
+            color: #FFFFFF;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #8B6F47;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-black selection:bg-brown selection:text-white bg-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer group">
+                    <a href="#home" class="text-2xl font-bold tracking-tight text-black">Echo<span class="text-brown font-light ml-0.5">Core</span></a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-10 items-center">
+                    <a href="#about" class="text-black hover:text-brown text-xs font-bold tracking-widest transition-colors uppercase">
+                        <span class="lang-en">About</span><span class="lang-tc">關於我們</span>
+                    </a>
+                    <a href="#services" class="text-black hover:text-brown text-xs font-bold tracking-widest transition-colors uppercase">
+                        <span class="lang-en">Services</span><span class="lang-tc">服務</span>
+                    </a>
+                    <a href="#why-us" class="text-black hover:text-brown text-xs font-bold tracking-widest transition-colors uppercase">
+                        <span class="lang-en">Why Us</span><span class="lang-tc">價值主張</span>
+                    </a>
+                    
+                    <!-- Language Toggle -->
+                    <button onclick="toggleLanguage()" class="px-3 py-1 border border-black/10 rounded-full text-xs font-medium text-black hover:border-brown hover:text-brown transition-all">
+                        <span class="lang-en">EN / 繁</span><span class="lang-tc">繁 / EN</span>
+                    </button>
+
+                    <a href="#contact" class="px-6 py-3 bg-black text-white text-sm font-bold rounded shadow-lg hover:bg-brown transition-all transform hover:-translate-y-0.5">
+                        <span class="lang-en">Start Now</span><span class="lang-tc">開始諮詢</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center gap-4">
+                     <button onclick="toggleLanguage()" class="px-2 py-1 border border-black/10 rounded text-xs font-medium text-black">
+                        <span class="lang-en">EN/繁</span><span class="lang-tc">繁/EN</span>
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="text-black hover:text-brown focus:outline-none p-2">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-black/5 absolute w-full shadow-xl">
+            <div class="px-6 py-6 space-y-4">
+                <a href="#about" onclick="toggleMobileMenu()" class="block text-lg font-bold text-black hover:text-brown">
+                    <span class="lang-en">About</span><span class="lang-tc">關於我們</span>
+                </a>
+                <a href="#services" onclick="toggleMobileMenu()" class="block text-lg font-bold text-black hover:text-brown">
+                    <span class="lang-en">Services</span><span class="lang-tc">服務內容</span>
+                </a>
+                 <a href="#why-us" onclick="toggleMobileMenu()" class="block text-lg font-bold text-black hover:text-brown">
+                    <span class="lang-en">Why Us</span><span class="lang-tc">價值主張</span>
+                </a>
+                <a href="#contact" onclick="toggleMobileMenu()" class="block text-lg font-bold text-brown">
+                    <span class="lang-en">Contact Us</span><span class="lang-tc">聯繫我們</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Wrapper -->
+    <div id="main-content">
+        <!-- Hero Section -->
+        <header id="home" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-black bg-[url('https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center">
+            <!-- Overlay for legibility -->
+            <div class="absolute inset-0 bg-black/60"></div>
+            
+            <!-- Background Decor -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/5 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                
+                <div class="mb-8 inline-block">
+                    <span class="hero-badge text-brown font-bold tracking-widest text-xs uppercase border border-brown/30 px-4 py-2 rounded-full bg-black/40 backdrop-blur-sm">
+                        <span class="lang-en">The Executive Content Machine</span>
+                        <span class="lang-tc">高管個人品牌內容引擎</span>
+                    </span>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight text-white tracking-tight drop-shadow-2xl">
+                    <span class="lang-en">Turn <span class="text-brown">Core</span> Leaders Into <br>Your Brand <span class="text-brown">Influencers</span></span>
+                    <span class="lang-tc">讓<span class="text-brown">核心</span>領袖成為<br><span class="text-brown">您品牌的影響力代言人</span></span>
+                </h1>
+                
+                <div class="max-w-2xl mx-auto mb-10">
+                    <p class="text-lg md:text-xl text-white/80 leading-relaxed font-light drop-shadow-lg">
+                        <span class="lang-en">People trust people. We uncover the authentic voice and expertise of executives to empower brands—moving beyond internal comms to real industry influence.</span>
+                        <span class="lang-tc">人們信任的是人。我們致力於發掘高管的真實聲音與專業能力，不局限於內部傳播，而是將真實個人魅力賦能品牌。</span>
+                    </p>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4 items-center">
+                    <a href="#services" class="px-8 py-4 bg-brown text-white rounded font-bold shadow-lg hover:bg-white hover:text-black transition-all">
+                        <span class="lang-en">Explore Strategies</span>
+                        <span class="lang-tc">探索策略服務</span>
+                    </a>
+                    <a href="#contact" class="px-8 py-4 bg-transparent border border-white/20 text-white rounded font-bold hover:border-white hover:bg-white/10 transition-all backdrop-blur-sm">
+                        <span class="lang-en">Consult Now</span>
+                        <span class="lang-tc">立即諮詢</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-24 bg-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="order-2 lg:order-1 relative">
+                        <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                            <!-- UPDATED IMAGE: New Branded Laptop Image -->
+                            <img src="https://cdn.gooo.ai/gen-images/e9cf7de1b23786c0da0d9ae15b56d94ff92996fc9f28bb398993b29959d4bd74.jpg" alt="Executive Meeting" class="w-full h-auto object-cover grayscale">
+                            <div class="absolute inset-0 bg-black/10"></div>
+                        </div>
+                        <!-- Decorative element -->
+                        <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-off-white rounded-full z-[-1]"></div>
+                        <div class="absolute -top-6 -left-6 w-full h-full border border-black/5 rounded-2xl z-[-1]"></div>
+                    </div>
+                    
+                    <div class="order-1 lg:order-2">
+                        <h2 class="text-brown text-sm font-bold uppercase tracking-widest mb-3">
+                            <span class="lang-en">Who We Are</span><span class="lang-tc">我們是誰</span>
+                        </h2>
+                        <h3 class="text-4xl md:text-5xl text-black font-bold mb-8 leading-tight">
+                            <span class="lang-en">Agency for the <br><span class="text-brown">Modern Executive</span></span>
+                            <span class="lang-tc">現代高管的<br><span class="text-brown">品牌代理機構</span></span>
+                        </h3>
+                        <div class="space-y-6 text-black/70 text-lg leading-relaxed">
+                            <p>
+                                <span class="lang-en">In an era flooded with AI-generated content and formulaic PR, <strong>authentic emotional connection</strong> is the key. People trust real people, not cold corporate accounts.</span>
+                                <span class="lang-tc">在AI流水線內容和公式化PR內容氾濫的時代，真實的、有情感連結的內容才是關鍵。人們信任的是真實的人，而不是冰冷的企業賬號。</span>
+                            </p>
+                            <p>
+                                <span class="lang-en">We reject cookie-cutter templates. We focus on humanized, warm content strategies that highlight your unique perspective. We distinguish between traditional PR and authentic personal branding.</span>
+                                <span class="lang-tc">我們拒絕千篇一律的模板化內容。我們致力於打造人性化、有溫度的內容策略。我們區分類似傳統公關與真實的個人品牌。</span>
+                            </p>
+                            <p>
+                                <span class="lang-en">We don't do formulaic press releases; we craft unique narratives that showcase your authentic voice and expertise while elevating your company's value.</span>
+                                <span class="lang-tc">我們不作公式化的新聞稿，而是為每位高管打造獨特的敘事，在展示高管的真實聲音與專業能力的同時，更好地提升和傳播公司品牌價值。</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-24 bg-off-white border-t border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+                    <div>
+                        <h2 class="text-brown text-sm font-bold uppercase tracking-widest mb-3">
+                            <span class="lang-en">Content Strategy Experts</span><span class="lang-tc">內容策略專家</span>
+                        </h2>
+                        <h3 class="text-3xl md:text-4xl text-black font-bold mb-4">
+                            <span class="lang-en">Our Services</span><span class="lang-tc">核心服務</span>
+                        </h3>
+                        <p class="text-black/60 max-w-2xl">
+                            <span class="lang-en">Each service is human-crafted with AI-assisted efficiency tools to deliver maximum impact.</span>
+                            <span class="lang-tc">每項服務均由人工精心策劃，並輔以AI工具提升效率，以實現最大影響力。</span>
+                        </p>
+                    </div>
+                    <div class="hidden md:block">
+                        <a href="#contact" class="text-black hover:text-brown font-bold text-sm transition-colors flex items-center gap-2">
+                            <span class="lang-en">Tailored for Leaders</span><span class="lang-tc">為領袖量身打造</span> <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- 1. Executive Social Media Strategy -->
+                    <div class="p-8 border border-gray-100 rounded-xl hover:shadow-soft hover:border-brown/20 transition-all group bg-white">
+                        <div class="mb-4">
+                            <span class="text-brown/40 font-bold text-4xl group-hover:text-brown transition-colors">01</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-black mb-3 group-hover:text-brown transition-colors">
+                            <span class="lang-en">Executive Social Media Strategy</span><span class="lang-tc">高管社交媒體策略</span>
+                        </h4>
+                        <p class="text-black/60 text-sm leading-relaxed">
+                            <span class="lang-en">Multi-platform strategies (LinkedIn, etc.) designed to maximize visibility and influence among peers and investors.</span>
+                            <span class="lang-tc">包含LinkedIn等多平台的綜合策略，全方位提升在同行與投資人中的可見度與影響力。</span>
+                        </p>
+                    </div>
+
+                    <!-- 2. Social Content Calendars -->
+                    <div class="p-8 border border-gray-100 rounded-xl hover:shadow-soft hover:border-brown/20 transition-all group bg-white">
+                        <div class="mb-4">
+                            <span class="text-brown/40 font-bold text-4xl group-hover:text-brown transition-colors">02</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-black mb-3 group-hover:text-brown transition-colors">
+                            <span class="lang-en">Social Content Calendars</span><span class="lang-tc">社交內容日曆</span>
+                        </h4>
+                        <p class="text-black/60 text-sm leading-relaxed">
+                            <span class="lang-en">Consistent, high-value posting schedules designed to keep your audience engaged and growing.</span>
+                            <span class="lang-tc">持續且高價值的發布計劃，確保受眾保持互動並持續增長。</span>
+                        </p>
+                    </div>
+
+                    <!-- 3. Brand Storytelling -->
+                    <div class="p-8 border border-gray-100 rounded-xl hover:shadow-soft hover:border-brown/20 transition-all group bg-white">
+                        <div class="mb-4">
+                            <span class="text-brown/40 font-bold text-4xl group-hover:text-brown transition-colors">03</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-black mb-3 group-hover:text-brown transition-colors">
+                            <span class="lang-en">Brand Storytelling</span><span class="lang-tc">品牌故事講述</span>
+                        </h4>
+                        <p class="text-black/60 text-sm leading-relaxed">
+                            <span class="lang-en">Weaving your personal journey with your company's mission to create compelling narratives.</span>
+                            <span class="lang-tc">將您的個人經歷與公司使命交織，創造引人入勝的品牌敘事。</span>
+                        </p>
+                    </div>
+
+                    <!-- 4. Ghostwriting -->
+                    <div class="p-8 border border-gray-100 rounded-xl hover:shadow-soft hover:border-brown/20 transition-all group bg-white">
+                        <div class="mb-4">
+                            <span class="text-brown/40 font-bold text-4xl group-hover:text-brown transition-colors">04</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-black mb-3 group-hover:text-brown transition-colors">
+                            <span class="lang-en">Ghostwriting</span><span class="lang-tc">專業代筆</span>
+                        </h4>
+                        <p class="text-black/60 text-sm leading-relaxed">
+                            <span class="lang-en">Professional articles, op-eds, and posts written in your authentic voice, saving you time.</span>
+                            <span class="lang-tc">以您真實的語氣撰寫專業文章、評論和貼文，為您節省寶貴時間。</span>
+                        </p>
+                    </div>
+
+                    <!-- 5. Audience Growth -->
+                    <div class="p-8 border border-gray-100 rounded-xl hover:shadow-soft hover:border-brown/20 transition-all group bg-white">
+                        <div class="mb-4">
+                            <span class="text-brown/40 font-bold text-4xl group-hover:text-brown transition-colors">05</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-black mb-3 group-hover:text-brown transition-colors">
+                            <span class="lang-en">Audience Growth Planning</span><span class="lang-tc">受眾增長規劃</span>
+                        </h4>
+                        <p class="text-black/60 text-sm leading-relaxed">
+                            <span class="lang-en">Targeted strategies to expand your network with relevant industry leaders and potential clients.</span>
+                            <span class="lang-tc">針對性的策略，助您拓展與相關行業領袖和潛在客戶的網絡。</span>
+                        </p>
+                    </div>
+
+                    <!-- 6. Performance Analysis -->
+                    <div class="p-8 border border-gray-100 rounded-xl hover:shadow-soft hover:border-brown/20 transition-all group bg-white">
+                        <div class="mb-4">
+                            <span class="text-brown/40 font-bold text-4xl group-hover:text-brown transition-colors">06</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-black mb-3 group-hover:text-brown transition-colors">
+                            <span class="lang-en">Performance Analysis</span><span class="lang-tc">表現分析</span>
+                        </h4>
+                        <p class="text-black/60 text-sm leading-relaxed">
+                            <span class="lang-en">Data-driven insights to refine content strategy and measure ROI of your personal brand.</span>
+                            <span class="lang-tc">數據驅動的洞察，用於優化內容策略並衡量個人品牌的投資回報率。</span>
+                        </p>
+                    </div>
+
+                    <!-- 7. Comprehensive Content Service (Featured) -->
+                    <div class="md:col-span-2 lg:col-span-3 p-10 bg-black rounded-xl text-white relative overflow-hidden group shadow-2xl">
+                        <div class="absolute right-0 top-0 w-64 h-64 bg-brown/10 rounded-full blur-3xl transform translate-x-1/3 -translate-y-1/3"></div>
+                        <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center gap-8">
+                            <div class="w-16 h-16 rounded-full bg-brown/20 flex items-center justify-center shrink-0 border border-brown/30">
+                                <i class="fas fa-crown text-brown text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-bold text-white mb-2">
+                                    <span class="lang-en">Comprehensive Content Service</span><span class="lang-tc">全包式內容服務</span>
+                                </h4>
+                                <p class="text-brown font-bold text-xs uppercase tracking-widest mb-4">
+                                    <span class="lang-en">Formerly Executive Content Machine</span><span class="lang-tc">前身為高管內容引擎</span>
+                                </p>
+                                <p class="text-white/80 text-base max-w-3xl leading-relaxed">
+                                    <span class="lang-en">We are your content engine and creative partner. We handle the heavy lifting of ideation, creation, and distribution, allowing you to focus solely on approving content that sounds exactly like you.</span>
+                                    <span class="lang-tc">我們是您的內容引擎和創意夥伴，而非機器人工具。我們承擔創意、製作和分發的所有繁重工作，您只需專注於批准那些完全符合您語氣的內容。</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="py-24 bg-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-brown text-sm font-bold uppercase tracking-widest mb-3">
+                        <span class="lang-en">Our Process</span><span class="lang-tc">服務流程</span>
+                    </h2>
+                    <h3 class="text-3xl md:text-4xl text-black font-bold mb-4">
+                        <span class="lang-en">How We Work</span><span class="lang-tc">我們如何工作</span>
+                    </h3>
+                    <p class="text-black/60 max-w-2xl mx-auto">
+                        <span class="lang-en">"AI follows, humans lead." We combine deep research with bespoke craftsmanship, using AI as an efficiency tool, not a creator.</span>
+                        <span class="lang-tc">"AI追隨，人類引領。"我們將深度研究與定制工藝相結合，將AI作為效率工具，而非創作者。</span>
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Step 1 -->
+                    <div class="relative group">
+                        <div class="text-6xl font-black text-off-white group-hover:text-brown/10 transition-colors absolute -top-8 -left-4 z-0">01</div>
+                        <div class="relative z-10 pt-4">
+                            <h4 class="text-xl font-bold text-black mb-4 group-hover:text-brown transition-colors">
+                                <span class="lang-en">Deep Research Phase</span><span class="lang-tc">深度研究階段</span>
+                            </h4>
+                            <p class="text-black/60 text-sm leading-relaxed">
+                                <span class="lang-en">We dive deep into your background, career journey, personal stories, and personality traits. We analyze your speaking style and industry trends to build a foundation that is uniquely yours.</span>
+                                <span class="lang-tc">我們深入研究您的背景、職業歷程、個人故事和個性特徵。我們分析您的演講風格和行業趨勢，為您打造獨一無二的品牌基礎。</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative group">
+                        <div class="text-6xl font-black text-off-white group-hover:text-brown/10 transition-colors absolute -top-8 -left-4 z-0">02</div>
+                        <div class="relative z-10 pt-4">
+                            <h4 class="text-xl font-bold text-black mb-4 group-hover:text-brown transition-colors">
+                                <span class="lang-en">Human-Crafted First</span><span class="lang-tc">人工精心創作</span>
+                            </h4>
+                            <p class="text-black/60 text-sm leading-relaxed">
+                                <span class="lang-en">Our team of content experts and brand specialists create authentic narratives. We don't mass-produce content—we craft every piece with taste and perspective to showcase your unique charm.</span>
+                                <span class="lang-tc">我們的內容專家和品牌專家團隊創作真實的敘事。我們不批量生產內容——我們用心雕琢每一篇內容，以展現您獨特的魅力。</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative group">
+                        <div class="text-6xl font-black text-off-white group-hover:text-brown/10 transition-colors absolute -top-8 -left-4 z-0">03</div>
+                        <div class="relative z-10 pt-4">
+                            <h4 class="text-xl font-bold text-black mb-4 group-hover:text-brown transition-colors">
+                                <span class="lang-en">AI as Efficiency Tool</span><span class="lang-tc">AI作為效率工具</span>
+                            </h4>
+                            <p class="text-black/60 text-sm leading-relaxed">
+                                <span class="lang-en">After establishing the foundation, we build a custom Content Agent (AI shadow) trained on your style. It becomes <strong>your</strong> tool for efficiency, scaling your presence without losing your voice.</span>
+                                <span class="lang-tc">在建立基礎後，我們訓練一個專屬的AI助手。它將成為<strong>您</strong>的效率工具，在保持您聲音的同時擴大您的影響力。</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative group">
+                        <div class="text-6xl font-black text-off-white group-hover:text-brown/10 transition-colors absolute -top-8 -left-4 z-0">04</div>
+                        <div class="relative z-10 pt-4">
+                            <h4 class="text-xl font-bold text-black mb-4 group-hover:text-brown transition-colors">
+                                <span class="lang-en">Ongoing Quality Control</span><span class="lang-tc">持續品質把控</span>
+                            </h4>
+                            <p class="text-black/60 text-sm leading-relaxed">
+                                <span class="lang-en">Our team oversees every output. We ensure every piece maintains empathy and authentic human connection, preventing the robotic feel of standard AI content.</span>
+                                <span class="lang-tc">我們的團隊監督每一個輸出。我們確保每一篇內容都保持共情和真實的人際連結，避免標準AI內容的機械感。</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Us / Value Proposition -->
+        <section id="why-us" class="py-24 bg-off-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-brown text-sm font-bold uppercase tracking-widest mb-3">
+                        <span class="lang-en">Why It Matters</span><span class="lang-tc">為什麼重要</span>
+                    </h2>
+                    <h3 class="text-3xl md:text-4xl text-black font-bold">
+                        <span class="lang-en">Why Executive Branding Now?</span>
+                        <span class="lang-tc">為什麼現在需要高管品牌？</span>
+                    </h3>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Card 1 -->
+                    <div class="bg-white p-8 rounded-xl shadow-card hover:shadow-soft transition-all duration-300 border border-gray-100 group">
+                        <div class="w-12 h-12 bg-off-white rounded-lg flex items-center justify-center mb-6 group-hover:bg-black transition-colors">
+                            <i class="fas fa-pen-fancy text-brown group-hover:text-white text-xl"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-black mb-3">
+                            <span class="lang-en">No Cookie-Cutter Templates</span><span class="lang-tc">內容為王</span>
+                        </h4>
+                        <p class="text-black/60 text-sm leading-relaxed">
+                            <span class="lang-en">We reject formulaic PR and AI content mills. We craft bespoke narratives that distinguish authentic personal branding from mass-produced noise.</span>
+                            <span class="lang-tc">在AI生成內容氾濫的時代，真實且有情感共鳴的內容才是關鍵。</span>
+                        </p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-white p-8 rounded-xl shadow-card hover:shadow-soft transition-all duration-300 border border-gray-100 group">
+                        <div class="w-12 h-12 bg-off-white rounded-lg flex items-center justify-center mb-6 group-hover:bg-black transition-colors">
+                            <i class="fas fa-fingerprint text-brown group-hover:text-white text-xl"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-black mb-3">
+                            <span class="lang-en">Human-Led, AI-Empowered</span><span class="lang-tc">真實至上</span>
+                        </h4>
+                        <p class="text-black/60 text-sm leading-relaxed">
+                            <span class="lang-en">We combine human taste, perspective, and empathy with custom AI tools. The result? Efficiency without sacrificing the soul of your message.</span>
+                            <span class="lang-tc">拒絕公式化公關。我們放大您真實的聲音，建立真正的信任。</span>
+                        </p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-white p-8 rounded-xl shadow-card hover:shadow-soft transition-all duration-300 border border-gray-100 group">
+                        <div class="w-12 h-12 bg-off-white rounded-lg flex items-center justify-center mb-6 group-hover:bg-black transition-colors">
+                            <i class="fas fa-user-tie text-brown group-hover:text-white text-xl"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-black mb-3">
+                            <span class="lang-en">Authentic Leadership</span><span class="lang-tc">獨特人設</span>
+                        </h4>
+                        <p class="text-black/60 text-sm leading-relaxed">
+                            <span class="lang-en">We don't turn executives into corporate billboards. We reveal your authentic leadership and charisma to create genuine market impact.</span>
+                            <span class="lang-tc">為您的領導風格和利基市場量身定制的內容策略。</span>
+                        </p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="bg-white p-8 rounded-xl shadow-card hover:shadow-soft transition-all duration-300 border border-gray-100 group">
+                        <div class="w-12 h-12 bg-off-white rounded-lg flex items-center justify-center mb-6 group-hover:bg-black transition-colors">
+                            <i class="fas fa-chart-line text-brown group-hover:text-white text-xl"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-black mb-3">
+                            <span class="lang-en">Real Connection</span><span class="lang-tc">品牌賦能</span>
+                        </h4>
+                        <p class="text-black/60 text-sm leading-relaxed">
+                            <span class="lang-en">People trust people, not cold corporate accounts. We help you build real trust and emotional connection with your audience.</span>
+                            <span class="lang-tc">通過展示個人魅力直接提升企業品牌價值和估值。</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 bg-black text-white relative overflow-hidden">
+            <!-- Abstract Decoration -->
+            <div class="absolute right-0 bottom-0 w-96 h-96 bg-brown/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-brown text-sm font-bold uppercase tracking-widest mb-3">
+                            <span class="lang-en">Contact</span><span class="lang-tc">聯繫我們</span>
+                        </h2>
+                        <h3 class="text-4xl md:text-5xl text-white font-bold mb-6 leading-tight">
+                            <span class="lang-en">Turn Your Leadership <br><span class="text-brown">Into Influence</span></span>
+                            <span class="lang-tc">將您的領導力 <br><span class="text-brown">轉化為影響力</span></span>
+                        </h3>
+                        <p class="text-white/60 text-lg mb-10 leading-relaxed max-w-md">
+                            <span class="lang-en">Don't just manage teams—lead the industry. We help executives articulate their authentic voice and move beyond internal communications to create real market impact.</span>
+                            <span class="lang-tc">不只是管理團隊，更要引領行業。我們協助高管建立真實的個人話語權，突破內部傳播的局限，創造真正的市場影響力。</span>
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mr-4 border border-white/10">
+                                    <i class="fas fa-envelope text-brown"></i>
+                                </div>
+                                <div>
+                                    <h5 class="text-sm font-bold text-white uppercase tracking-wider">Email</h5>
+                                    <p class="text-white/60">hello@echocore.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-8 md:p-10 rounded-2xl shadow-2xl text-black">
+                        <form onsubmit="handleFormSubmit(event)">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label class="block text-xs font-bold text-black/50 mb-2 uppercase tracking-wider">
+                                        <span class="lang-en">First Name</span><span class="lang-tc">名字</span>
+                                    </label>
+                                    <input type="text" class="w-full px-4 py-3 bg-off-white border border-gray-200 rounded text-black focus:outline-none focus:border-brown focus:ring-1 focus:ring-brown transition-all" placeholder="John" required>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-black/50 mb-2 uppercase tracking-wider">
+                                        <span class="lang-en">Last Name</span><span class="lang-tc">姓氏</span>
+                                    </label>
+                                    <input type="text" class="w-full px-4 py-3 bg-off-white border border-gray-200 rounded text-black focus:outline-none focus:border-brown focus:ring-1 focus:ring-brown transition-all" placeholder="Doe" required>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-xs font-bold text-black/50 mb-2 uppercase tracking-wider">
+                                    <span class="lang-en">Work Email</span><span class="lang-tc">工作郵箱</span>
+                                </label>
+                                <input type="email" class="w-full px-4 py-3 bg-off-white border border-gray-200 rounded text-black focus:outline-none focus:border-brown focus:ring-1 focus:ring-brown transition-all" placeholder="john@company.com" required>
+                            </div>
+
+                            <div class="mb-6">
+                                <label class="block text-xs font-bold text-black/50 mb-2 uppercase tracking-wider">
+                                    <span class="lang-en">Service Interest</span><span class="lang-tc">感興趣的服務</span>
+                                </label>
+                                <div class="relative">
+                                    <select class="w-full px-4 py-3 bg-off-white border border-gray-200 rounded text-black focus:outline-none focus:border-brown focus:ring-1 focus:ring-brown transition-all appearance-none cursor-pointer">
+                                        <option value="comprehensive">Comprehensive Content Service (全包式內容服務)</option>
+                                        <option value="strategy">Social Media Strategy (社交媒體策略)</option>
+                                        <option value="ghostwriting">Ghostwriting (代筆服務)</option>
+                                        <option value="storytelling">Brand Storytelling (品牌故事)</option>
+                                        <option value="other">Others (其他)</option>
+                                    </select>
+                                    <div class="absolute right-4 top-3.5 pointer-events-none text-black/50">
+                                        <i class="fas fa-chevron-down text-xs"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-8">
+                                <label class="block text-xs font-bold text-black/50 mb-2 uppercase tracking-wider">
+                                    <span class="lang-en">Message</span><span class="lang-tc">留言</span>
+                                </label>
+                                <textarea rows="4" class="w-full px-4 py-3 bg-off-white border border-gray-200 rounded text-black focus:outline-none focus:border-brown focus:ring-1 focus:ring-brown transition-all" placeholder="How can we help?"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full py-4 bg-black text-white font-bold text-xl rounded hover:bg-brown transition-all shadow-lg hover:shadow-xl">
+                                <span class="lang-en">Request Consultation</span><span class="lang-tc">申請諮詢</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-black border-t border-white/10 pt-16 pb-8 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+                    <div class="mb-8 md:mb-0 text-center md:text-left">
+                        <div class="mb-4">
+                             <span class="text-2xl font-bold tracking-tight text-white">Echo<span class="text-brown font-light ml-0.5">Core</span></span>
+                        </div>
+                        <p class="text-white/40 text-sm mt-0 max-w-xs">
+                            <span class="lang-en">Turning Leaders Into Influencers.</span><span class="lang-tc">將領袖打造為影響者。</span>
+                        </p>
+                    </div>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-white/40 hover:text-brown transition-colors p-2"><i class="fab fa-linkedin text-2xl"></i></a>
+                        <a href="#" class="text-white/40 hover:text-brown transition-colors p-2"><i class="fab fa-twitter text-2xl"></i></a>
+                    </div>
+                </div>
+                
+                <div class="border-t border-white/5 pt-8 text-center text-white/20 text-xs font-medium uppercase tracking-widest">
+                    <p>&copy; 2026 Echo Core. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript logic -->
+    <script>
+        function toggleLanguage() {
+            document.body.classList.toggle('show-tc');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            // In a real scenario, you would send this data to a backend
+            alert("Thank you! Your request has been received. We will contact you shortly.");
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
