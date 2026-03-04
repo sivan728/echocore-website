@@ -582,13 +582,13 @@
                                     <label class="block text-xs font-bold text-black/50 mb-2 uppercase tracking-wider">
                                         <span class="lang-en">First Name</span><span class="lang-tc">名字</span>
                                     </label>
-                                    <input type="text" class="w-full px-4 py-3 bg-off-white border border-gray-200 rounded text-black focus:outline-none focus:border-brown focus:ring-1 focus:ring-brown transition-all" placeholder="John" required>
+                                    <input type="text" name="firstName" class="w-full px-4 py-3 bg-off-white border border-gray-200 rounded text-black focus:outline-none focus:border-brown focus:ring-1 focus:ring-brown transition-all" placeholder="John" required>
                                 </div>
                                 <div>
                                     <label class="block text-xs font-bold text-black/50 mb-2 uppercase tracking-wider">
                                         <span class="lang-en">Last Name</span><span class="lang-tc">姓氏</span>
                                     </label>
-                                    <input type="text" class="w-full px-4 py-3 bg-off-white border border-gray-200 rounded text-black focus:outline-none focus:border-brown focus:ring-1 focus:ring-brown transition-all" placeholder="Doe" required>
+                                    <input type="text" name="lastName" class="w-full px-4 py-3 bg-off-white border border-gray-200 rounded text-black focus:outline-none focus:border-brown focus:ring-1 focus:ring-brown transition-all" placeholder="Doe" required>
                                 </div>
                             </div>
                             
@@ -596,7 +596,7 @@
                                 <label class="block text-xs font-bold text-black/50 mb-2 uppercase tracking-wider">
                                     <span class="lang-en">Work Email</span><span class="lang-tc">工作郵箱</span>
                                 </label>
-                                <input type="email" class="w-full px-4 py-3 bg-off-white border border-gray-200 rounded text-black focus:outline-none focus:border-brown focus:ring-1 focus:ring-brown transition-all" placeholder="john@company.com" required>
+                                <input type="email" name="email" class="w-full px-4 py-3 bg-off-white border border-gray-200 rounded text-black focus:outline-none focus:border-brown focus:ring-1 focus:ring-brown transition-all" placeholder="john@company.com" required>
                             </div>
 
                             <div class="mb-6">
@@ -604,7 +604,7 @@
                                     <span class="lang-en">Service Interest</span><span class="lang-tc">感興趣的服務</span>
                                 </label>
                                 <div class="relative">
-                                    <select class="w-full px-4 py-3 bg-off-white border border-gray-200 rounded text-black focus:outline-none focus:border-brown focus:ring-1 focus:ring-brown transition-all appearance-none cursor-pointer">
+                                    <select name="service" class="w-full px-4 py-3 bg-off-white border border-gray-200 rounded text-black focus:outline-none focus:border-brown focus:ring-1 focus:ring-brown transition-all appearance-none cursor-pointer">
                                         <option value="comprehensive">Comprehensive Content Service (全包式內容服務)</option>
                                         <option value="strategy">Social Media Strategy (社交媒體策略)</option>
                                         <option value="ghostwriting">Ghostwriting (代筆服務)</option>
@@ -621,7 +621,7 @@
                                 <label class="block text-xs font-bold text-black/50 mb-2 uppercase tracking-wider">
                                     <span class="lang-en">Message</span><span class="lang-tc">留言</span>
                                 </label>
-                                <textarea rows="4" class="w-full px-4 py-3 bg-off-white border border-gray-200 rounded text-black focus:outline-none focus:border-brown focus:ring-1 focus:ring-brown transition-all" placeholder="How can we help?"></textarea>
+                                <textarea name="message" rows="4" class="w-full px-4 py-3 bg-off-white border border-gray-200 rounded text-black focus:outline-none focus:border-brown focus:ring-1 focus:ring-brown transition-all" placeholder="How can we help?"></textarea>
                             </div>
                             
                             <button type="submit" class="w-full py-4 bg-black text-white font-bold text-xl rounded hover:bg-brown transition-all shadow-lg hover:shadow-xl">
